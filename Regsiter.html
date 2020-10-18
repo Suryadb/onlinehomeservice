@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Angular js assignment</title>
+      
+          <meta charset="utf-8"/>
+          <meta name="application-name" content="ng-repeat example"/>
+        <script src="https://code.angularjs.org/1.6.9/angular-route.js"></script>
+      <script src="https://code.angularjs.org/1.6.9/angular.js"></script>
+      <script src="https://code.angularjs.org/1.6.9/angular.min.js"></script>
+      <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+          <script type="text/javascript" 
+      src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.min.js"> </script>
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+          <script src="app.js"> </script>
+          <style>
+              .jumbotron {
+             background-image: url("https://images.unsplash.com/photo-1595831708961-1b13c0dd2422?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1076&q=80");
+             background-size: cover;
+           }
+           .buttons
+           {
+             padding-top:20px;
+           }
+         </style>
+      </head>
+<body ng-app="myApp" ng-controller="myCtrl">
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+          <a class="nav-link active" href="index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="custom.html">Custom</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="services page.html">Services</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="Register.html">Register</a>
+        </li>
+      </ul>
+	<h1>Register to become a member</h1>
+
+	<form name="myForm" method="POST" onSubmit="alert('Thank you your response has been recorded');" onSubmit="window.location.reload();">
+		<div>
+			<label for="first">First Name :</label>
+			<input id="first" name="firstname" type="text" placeholder="John" required>
+
+			<label for="last">Last Name :</label>
+			<input id="last" name="lastname" type="text" placeholder="Smith" required>
+		</div><br>
+
+		<div>
+			<input id="male" name="gender" type="radio" value="male">
+			<label for="male">Male</label>
+			<input id="female" name="gender" type="radio" value="female">
+			<label for="female">Female</label>
+			<input id="other" name="gender" type="radio" value="other">
+			<label for="other">Other</label>	
+		</div><br>
+
+		<div>
+			<label>
+			Email : <input name="your mail" type="email" placeholder="your email" required>
+			</label>
+			<label>
+			Password : <input type="password" name="password" ng-model="password" ng-minlength='{{user.password.minlength}}'
+						ng-maxlength='{{user.password.maxlength}}' required>
+						<span ng-show="myForm.password.$error.minlength">Input is too short!</span>
+						<span ng-show="myForm.password.$error.maxlength">Input is too long!</span>
+			</label>
+		</div><br>
+
+		<br>
+
+		<div>
+			<label>Service : <input type="text" name="service" placeholder="Service that you provide" ng-model="service" ng-list required><span> (Note: If you want to give more than one service give those sercives separated by comma)</span><br>
+			</label>
+			<pre>Service Entered : {{service}}</pre>
+		</div><br>
+
+		<div>
+			<label for="agree">I agree to the terms and conditions </label>
+			<input id="agree" type="checkbox" ng-model="checked"><br><br>
+			<input type="Submit" ng-disabled="!checked">
+		</div>
+
+	</form>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+	<script>
+          var app = angular.module("myApp", []);
+          app.controller('myCtrl', function($scope) {
+               $scope.user = {
+                    password: {
+                         required: true,
+                         minlength: 5,
+                         maxlength: 20
+                    }
+               }
+          });     
+	</script>
+
+</body>
+</html>

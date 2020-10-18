@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<script type="text/javascript" 
+   src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.min.js"> </script>
+
+
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Mindful</title>
+      <link rel="stylesheet" href="css/bootstrap.min.css">
+      <link rel="stylesheet" href="css/style.css">
+      <link rel="stylesheet" href="css/fontawesome.min.css">
+      <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
+   </head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.column {
+  float: left;
+  width: 33.3%;
+  margin-bottom: 16px;
+  padding: 0 8px;
+}
+
+@media screen and (max-width: 250px) {
+  .column {
+    width: 100%;
+    display: block;
+  }
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.container {
+  padding: 0 16px;
+}
+
+.container::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.title {
+  color: grey;
+}
+
+.button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 25%;
+  float : left;
+}
+.button1 {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 25%;
+  float : right;
+}
+
+.button:hover {
+  background-color: #555;
+}
+.card:hover {
+  box-shadow: 0 16px 16px 0 rgba(0,0,0,10);
+}
+
+img
+{
+float: right;
+}
+input[type=text], select, textarea {
+  width: 75%; /* Full width */
+  padding: 12px; /* Some padding */ 
+  border: 1px solid #ccc; /* Gray border */
+  border-radius: 4px; /* Rounded borders */
+  box-sizing: border-box; /* Make sure that padding and width stays in place */
+  margin-top: 6px; /* Add a top margin */
+  margin-bottom: 16px; /* Bottom margin */
+  resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+}
+
+</style>
+</head>
+<body ng-app="filterapp"  ng-controller="filterctrl">
+   <ul class="nav nav-tabs">
+      <li class="nav-item">
+        <a class="nav-link active" href="index.html">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="custom.html">Custom</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="services page.html">Services</a>
+      </li>
+      <li class="nav-item">
+         <a class="nav-link" href="booking.html">Booking</a>
+       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="register.html">Register</a>
+      </li>
+    </ul>
+<br>
+<div style="background-image:url('https://images.unsplash.com/photo-1588345921523-c2dcdb7f1dcd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80'); background-size:cover">
+<center><input type="text" ng-model="search" placeholder="Search for the required helper in your city based on their profession"></center>
+<br><br>
+<div class="row">
+<div ng-repeat="list in doclist | filter:search">
+  <div class="column">
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1577199001468-44c049e7603f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80" style="width:25%">
+      <div class="container" >
+        <h5>Name: <b>{{list.name}}<b></h5>
+        <h5>Profession:{{list.profession}}</h5>
+        <h5>Location: Hosur</h5>
+        <h5>Available time: {{ time | date }}</h5> 
+
+        <h8><button class="button">Book</button></h8>
+		<br><br><br>
+      </div>
+    </div>
+      </div>
+</div>
+</div>
+</div>
+<br><br><br>
+<script>
+var app = angular.module("filterapp",[]);
+app.controller("filterctrl",function($scope)
+{
+   $scope.time = new Date();   
+   $scope.doclist = [  
+   { name:"Surya",profession:"Plumber" },
+   { name:"Raaghul",profession:"Mason"},
+   { name:"Ramesh",profession:"Carpenter"},
+      { name:"Tharun",profession:"Electrician"}];
+});
+</script>
+
+
+
+</body>
+</html>
+

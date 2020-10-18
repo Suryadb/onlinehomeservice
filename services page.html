@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script src="https://code.angularjs.org/1.6.9/angular-route.js"></script>
+<script src="https://code.angularjs.org/1.6.9/angular.js"></script>
+<script src="https://code.angularjs.org/1.6.9/angular.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript" 
+src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.min.js"> </script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<body>
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link active" href="index.html">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="custom.html">Custom</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="services page.html">Services</a>
+    </li>
+    <li class="nav-item">
+       <a class="nav-link" href="booking.html">Booking</a>
+     </li>
+    <li class="nav-item">
+      <a class="nav-link" href="register.html">Register</a>
+    </li>
+  </ul>
+<div style="background-image:url('https://images.unsplash.com/photo-1588345921523-c2dcdb7f1dcd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80'); background-size:cover;">
+<h1>Services</h1>
+<div>
+    <div class="media" style="padding-bottom: 20px; padding-left:20px; padding-right: 20px;">
+        <img src="https://images.unsplash.com/photo-1530639834082-05bafb67fbbe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80" width="250" height="250" class="mr-3" alt="...">
+        <div class="media-body">
+          <h3 class="mt-0">Workers at your door step</h3>
+            <p>
+                Are you not aware of the services around you , Do you find it difficult to find the correct workers in correct time, Do you find it difficult to get access to the workers around you ,
+                Don't worry we'll sort it out for you.
+            </p>
+        </div>
+      </div>
+</div>
+
+<div ng-app="myApp" ng-controller="myCtrl" style="padding-left:20px;">
+
+<button type="button" ng-click="myFunc()" class="btn btn-dark" style="padding-bottom:10px;">Click me</button>
+
+<div ng-show="showMe" style="padding-bottom:10px;">
+    <h3>Services available:</h3>
+    <div class="card" style="width: 18rem; padding-top:20px;">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Plumber</li>
+          <li class="list-group-item">Electrician</li>
+          <li class="list-group-item">Cable man</li>
+          <li class="list-group-item">Gardener</li>
+          <li class="list-group-item">Maids</li>
+          <li class="list-group-item">Cook</li>
+        </ul>
+        <div class="card-footer">
+            Carpenter
+        </div>
+      </div>
+</div>
+
+</div>
+</div>
+<script>
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope) {
+    $scope.showMe = false;
+    $scope.myFunc = function() {
+        $scope.showMe = !$scope.showMe;
+    }
+});
+</script>
+
+<p style="padding-left:20px; padding-top:20px;">Click the button find the services available</p>
+
+</body>
+</html>
